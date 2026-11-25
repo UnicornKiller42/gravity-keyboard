@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14131c">
+  <title>Gravity Keyboard</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ffd36b'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='18' font-family='sans-serif' fill='%23241910'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="stage" width="800" height="600" aria-hidden="true"></canvas>
+  <p id="title">Gravity Keyboard</p>
+  <p id="hint">start typing</p>
+  <form id="dock" autocomplete="off">
+    <input id="typer" type="text" enterkeyhint="go" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="type here" aria-label="Type letters">
+    <button type="button" id="shake">Shake</button>
+    <button type="button" id="mute" aria-pressed="false">Mute</button>
+  </form>
+  <script src="physics.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

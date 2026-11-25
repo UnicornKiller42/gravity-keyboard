@@ -1,0 +1,149 @@
+:root {
+  color-scheme: dark;
+  --ink: #241910;
+  --cream: #fff6ea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(90% 48% at 50% 108%, rgba(255, 186, 120, 0.18), transparent 52%),
+    radial-gradient(70% 42% at 50% -12%, rgba(132, 108, 196, 0.42), transparent 58%),
+    #14131c;
+  color: var(--cream);
+  font-family: "Segoe UI", "Avenir Next", "Trebuchet MS", sans-serif;
+  touch-action: manipulation;
+}
+
+#stage {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  touch-action: none;
+}
+
+#stage.jolt {
+  animation: jolt 0.42s ease-out;
+}
+
+@keyframes jolt {
+  0% { transform: translate(0, 0); }
+  18% { transform: translate(-8px, 4px); }
+  38% { transform: translate(7px, -5px); }
+  58% { transform: translate(-4px, -2px); }
+  78% { transform: translate(3px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+
+#title {
+  position: fixed;
+  z-index: 2;
+  top: calc(14px + env(safe-area-inset-top));
+  left: 18px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 246, 234, 0.5);
+  pointer-events: none;
+}
+
+#hint {
+  position: fixed;
+  z-index: 1;
+  top: 28vh;
+  left: 16px;
+  right: 16px;
+  margin: 0;
+  text-align: center;
+  font-size: clamp(28px, 6vw, 56px);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: rgba(255, 246, 234, 0.82);
+  text-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+#hint.gone {
+  opacity: 0;
+}
+
+#dock {
+  position: fixed;
+  z-index: 3;
+  left: 12px;
+  right: 12px;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(32, 28, 44, 0.88);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.32);
+}
+
+#typer {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 16px;
+  background: var(--cream);
+  color: var(--ink);
+  font: 600 16px/1.2 "Segoe UI", "Avenir Next", "Trebuchet MS", sans-serif;
+  outline: none;
+}
+
+#typer::placeholder {
+  color: rgba(36, 25, 16, 0.42);
+}
+
+#typer:focus {
+  box-shadow: 0 0 0 3px rgba(255, 211, 107, 0.9);
+}
+
+button {
+  height: 48px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: #ffd36b;
+  color: var(--ink);
+  font: 700 15px/1 "Segoe UI", "Avenir Next", "Trebuchet MS", sans-serif;
+  cursor: pointer;
+}
+
+#mute {
+  background: #b7f3d0;
+}
+
+#mute[aria-pressed="true"] {
+  background: #d9d4e2;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 420px) {
+  #title {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+
+  button {
+    padding: 0 11px;
+  }
+}
